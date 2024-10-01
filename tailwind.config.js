@@ -17,7 +17,7 @@ module.exports = withMT({
         xl: '1440px',
       },
       colors: {
-        primary: '#ff6533',
+        primary: '#e41d55',
         secondary: '#ffe680',
       }
     },
