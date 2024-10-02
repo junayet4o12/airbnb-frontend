@@ -7,3 +7,37 @@
     font-family: "Nunito", sans-serif;
     font-weight: 500;
 }
+
+.dropdownShadow {
+    box-shadow: 0px 0px 10px black;
+}
+
+/* Target the specific div */
+.custom-scrollbar {
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Scrollbar color for Firefox */
+  }
+  
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px; /* Set width of the scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color for the thumb */
+    border-radius: 10px; /* More rounded radius for the scrollbar thumb */
+    border: 2px solid transparent; /* Add a little padding around the thumb */
+    background-clip: padding-box; /* Ensure the padding doesn't collapse */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+  }
+  
+  /* Hover effects */
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Darken thumb on hover */
+    border-radius: 10px; /* Keep the radius consistent */
+  }
+  

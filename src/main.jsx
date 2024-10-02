@@ -16,6 +16,8 @@ import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import { router } from './Routes/Routes.jsx';
 import store from './Redux/store.jsx';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>

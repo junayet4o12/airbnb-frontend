@@ -12,7 +12,7 @@ const Navbar = () => {
       <div>
         <nav className="flex justify-between items-center py-4">
           {/* Left - Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center md:flex-1">
             <img
               src={logo}
               alt="Airbnb Logo"
@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
 
           {/* Right - Icons */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-end space-x-2 md:flex-1">
             <button className='text-sm font-bold p-2 rounded-full hover:bg-black/5 transition-all duration-300'>Airbnb your home</button>
             <button className='p-2 rounded-full hover:bg-black/5 transition-all duration-300'><img className='size-4' src={earth} alt="" /></button>
 
