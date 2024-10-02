@@ -6,6 +6,7 @@ import logo from '../../assets/logo/mainLogo.png'
 import earth from '../../assets/icon/earth.svg'
 import Container from '../../Shared/Container';
 import Searchbar from './Searchbar';
+import Category from './Category';
 const Navbar = () => {
   return (
     <Container>
@@ -50,6 +51,7 @@ const Navbar = () => {
           </div>
         </nav>
         <Searchbar />
+        <Category/>
       </div>
     </Container>
   );

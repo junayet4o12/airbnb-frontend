@@ -4,20 +4,10 @@ import SelectLocationDropdown from './SelectLocationDropdown';
 import CheckIn from './CheckIn';
 import Checkout from './Checkout';
 import Guests from './Guests';
+import useInfo from '../../hooks/useInfo';
 
 const Searchbar = () => {
-    const [filteringData, setFilteringData] = useState({
-        location: '',
-        checkIn: null,
-        checkout: new Date(),
-    })
-    const [guests, setGuests] = useState({
-        adults: 0,
-        children: 0,
-        infants: 0,
-        pets: 0,
-    })
-
+    const { filteringData, setFilteringData, guests, setGuests } = useInfo()
     // Separate isOpen states for each dropdown
     const [isOpenLocation, setIsOpenLocation] = useState(false);
     const [isOpenCheckIn, setIsOpenCheckIn] = useState(false);
@@ -53,13 +43,13 @@ const Searchbar = () => {
     const totalInfants = guests.infants || 0;
     const totalPets = guests.pets || 0;
     const total = totalGuest + totalInfants + totalPets;
-    const showingGuestText = total > 0 
-  ? [
-      totalGuest > 0 ? `Guests: ${totalGuest}` : '',
-      totalInfants > 0 ? `Infants: ${totalInfants}` : '',
-      totalPets > 0 ? `Pets: ${totalPets}` : ''
-    ].filter(Boolean).join(', ') 
-  : 'Add guests';
+    const showingGuestText = total > 0
+        ? [
+            totalGuest > 0 ? `Guests: ${totalGuest}` : '',
+            totalInfants > 0 ? `Infants: ${totalInfants}` : '',
+            totalPets > 0 ? `Pets: ${totalPets}` : ''
+        ].filter(Boolean).join(', ')
+        : 'Add guests';
     return (
         <div className={`flex items-center rounded-full shadow-md p-0.5 pr-2 max-w-4xl mx-auto text-sm space-x-2 ${isOpenLocation || isOpenCheckIn || isOpenCheckout || isOpenGuest ? 'bg-gray-200' : 'bg-white'}`}>
             {/* Where Section */}
@@ -128,7 +118,7 @@ const Searchbar = () => {
                     </div>
                     {/* Search Button */}
                     <button className="bg-primary text-white p-3 rounded-full top-4 right-4 flex items-center gap-2 transition-all duration-300">
-                      {isOpenGuest && ' Search'} <FaSearch />
+                        {isOpenGuest && ' Search'} <FaSearch />
                     </button>
                 </div>
                 {
