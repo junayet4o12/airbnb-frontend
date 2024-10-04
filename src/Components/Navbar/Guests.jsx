@@ -56,7 +56,7 @@ const Guests = ({ setIsOpen, guests, setGuests }) => {
     };
 
     return (
-        <div ref={dropdownRef} className="bg-white p-3 shadow-lg w-full min-w-[400px] rounded-xl max-h-[50vh] overflow-auto custom-scrollbar">
+        <div ref={dropdownRef} className="bg-white  p-3 shadow-lg w-full subxl:min-w-[400px] rounded-xl max-h-[50vh] overflow-auto custom-scrollbar">
             <div className="space-y-4">
                 {Object.keys(guests).map((category, index) => (
                     <div key={index} className=''>

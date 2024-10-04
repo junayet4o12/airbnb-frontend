@@ -47,7 +47,7 @@ const Navbar = () => {
 
           {/* Right - Icons */}
           <div className="flex items-center justify-end space-x-2 md:flex-1">
-            <button className='text-sm font-bold p-2 rounded-full hover:bg-black/5 transition-all duration-300'>Airbnb your home</button>
+            <button className='text-sm font-bold p-2 rounded-full hover:bg-black/5 transition-all duration-300 hidden lg:block'>Airbnb your home</button>
             <button className='p-2 rounded-full hover:bg-black/5 transition-all duration-300'><img className='size-4' src={earth} alt="" /></button>
 
             <div className="dropdown dropdown-end">

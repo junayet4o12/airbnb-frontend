@@ -23,6 +23,8 @@ const InfoProviders = ({ children }) => {
         pets: 0,
     })
     const [filter, { data, isLoading }] = useFilterPropertyMutation();
+    console.log(data);
+    
     const filterAll = () => {
         filter({ ...filteringData, category: category.category, ...guests })
     }

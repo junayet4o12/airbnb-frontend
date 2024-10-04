@@ -81,9 +81,9 @@ const Searchbar = () => {
     const isShowFull = keepFullSearchBar ? true : showFullSearchBar ? true : false
 
     return (
-        <div className={`transition-all duration-300 flex items-center rounded-full shadow-md p-0.5 pr-2 ${isShowFull ? 'max-w-4xl' : 'max-w-[350px]'} mx-auto text-sm space-x-2 ${isOpenLocation || isOpenCheckIn || isOpenCheckout || isOpenGuest ? 'bg-gray-200' : 'bg-white'}`}>
+        <div className={`transition-all duration-300 flex  items-center rounded-full shadow-md p-0.5 pr-2 ${isShowFull ? 'max-w-4xl flex-col sm:flex-row' : 'max-w-[350px]'} mx-auto text-sm space-x-2 ${isOpenLocation || isOpenCheckIn || isOpenCheckout || isOpenGuest ? 'bg-gray-200' : 'bg-white'}`}>
             {/* Where Section */}
-            <div className='relative flex-1'>
+            <div className='relative md:flex-1'>
                 {
                     isShowFull ? <div onClick={openLocation} className={`flex-grow px-5 rounded-full transition-all duration-300 ${isOpenLocation ? 'bg-white' : 'hover:bg-gray-100'}  py-4`}>
                         <label className="block   text-sm">Where</label>
@@ -100,7 +100,7 @@ const Searchbar = () => {
                 )}
             </div>
 
-            <div className='flex-1 flex items-center'>
+            <div className='md:flex-1 flex items-center'>
                 {/* Divider */}
                 <div className="border-l border-gray-300  h-10" />
 
@@ -145,7 +145,7 @@ const Searchbar = () => {
                 <div className="border-l border-gray-300 h-10" />
             </div>
 
-            <div className='relative flex-1'>
+            <div className='relative md:flex-1'>
                 {
                     isShowFull ? <>
                         {/* Who Section */}

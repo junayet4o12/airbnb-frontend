@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <>
             {
-                data.length > 0 ? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pb-40">
+                data.length > 0 ? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pb-52">
                     {
                         data?.map(item => <PropertyCard key={item._id} data={item} />)
                     }
