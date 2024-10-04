@@ -38,6 +38,7 @@ const PropertyCard = ({ data }) => {
             <div>
                 <h2 className='text-base font-semibold'>{location}</h2>
                 <h3 className='text-base text-gray-600 font-semibold'>{viewType}</h3>
+                <h3 className='text-base text-gray-600 font-semibold'>{formatDate(startDate)} - {formatDate(endDate)}</h3>
                 {
                     isShowTexas ? <p className='underline font-semibold'>${totalBeforeTaxes} total before texas</p> : <p className='font-bold'>${pricePerNight} per Guest</p>
                 }
