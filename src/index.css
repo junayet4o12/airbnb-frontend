@@ -40,4 +40,9 @@
     background-color: rgba(0, 0, 0, 0.5); /* Darken thumb on hover */
     border-radius: 10px; /* Keep the radius consistent */
   }
-  
+  .swiperBtn {
+    opacity: 0;
+  }
+  .swiperBtnParents:hover .swiperBtn {
+    opacity: 1;
+  }

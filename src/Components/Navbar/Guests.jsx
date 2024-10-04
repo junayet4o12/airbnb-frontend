@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useRef } from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
+import useInfo from '../../hooks/useInfo';
 
 const Guests = ({ setIsOpen, guests, setGuests }) => {
     const dropdownRef = useRef(null);
-
+    const {setShowFullSearchBar, setKeepFullSearchBar} = useInfo()
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
+                setShowFullSearchBar(true)
+                setKeepFullSearchBar(false)
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -53,7 +56,7 @@ const Guests = ({ setIsOpen, guests, setGuests }) => {
     };
 
     return (
-        <div ref={dropdownRef} className="bg-white p-3 shadow-lg w-full min-w-[400px] rounded-xl max-h-[55vh] overflow-auto custom-scrollbar">
+        <div ref={dropdownRef} className="bg-white p-3 shadow-lg w-full min-w-[400px] rounded-xl max-h-[50vh] overflow-auto custom-scrollbar">
             <div className="space-y-4">
                 {Object.keys(guests).map((category, index) => (
                     <div key={index} className=''>

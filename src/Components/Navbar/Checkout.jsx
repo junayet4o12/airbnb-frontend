@@ -1,19 +1,23 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { DateRange } from "react-date-range";
+import useInfo from "../../hooks/useInfo";
 
-const Checkout = ({ setIsOpen, checkout:incomingCheckout,handleChangeCheckout,checkIn }) => {
+const Checkout = ({ setIsOpen, checkout: incomingCheckout, handleChangeCheckout, checkIn }) => {
+
     const checkout = [
-        { startDate: checkIn || new Date(), endDate: incomingCheckout, key: 'selection' }
+        { startDate: checkIn || new Date(), endDate: incomingCheckout || checkIn, key: 'selection' }
     ]
     const dropdownRef = useRef(null);
-
+    const { setShowFullSearchBar, setKeepFullSearchBar } = useInfo()
 
     useEffect(() => {
         // Close the dropdown when clicking outside of it
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
+                setShowFullSearchBar(true)
+                setKeepFullSearchBar(false)
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -31,8 +35,7 @@ const Checkout = ({ setIsOpen, checkout:incomingCheckout,handleChangeCheckout,ch
         handleChangeCheckout([newSelection])
         // setReturnDate();
     };
-    console.log(checkout);
-    
+
     return (
         <div className="allAirportDropDown rounded-lg bg-white overflow-hidden" ref={dropdownRef}>
             <DateRange

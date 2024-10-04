@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { FiMenu } from 'react-icons/fi';
 import { GiWorld } from 'react-icons/gi';
@@ -7,11 +7,30 @@ import earth from '../../assets/icon/earth.svg'
 import Container from '../../Shared/Container';
 import Searchbar from './Searchbar';
 import Category from './Category';
+import useInfo from '../../hooks/useInfo';
 const Navbar = () => {
+  const {showFullSearchBar, setShowFullSearchBar,keepFullSearchBar} = useInfo()
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      if (scrolled === 0) {
+        setShowFullSearchBar(true)
+      } else {
+        setShowFullSearchBar(false)
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const isShowFull = keepFullSearchBar ? true : showFullSearchBar ? true : false
   return (
     <Container>
       <div>
-        <nav className="flex justify-between items-center py-4">
+        <nav className="flex justify-between items-center py-4 bg-white">
           {/* Left - Logo */}
           <div className="flex items-center md:flex-1">
             <img
@@ -23,7 +42,7 @@ const Navbar = () => {
 
           {/* Center - Links */}
           <div className="hidden md:flex">
-            <p className="text-gray-800 hover:text-black">Stays</p>
+            <p className={`text-gray-800 hover:text-black transition-all duration-300 ${isShowFull ? 'mt-0' : "-mt-20"}`}>Stays</p>
           </div>
 
           {/* Right - Icons */}
@@ -50,8 +69,10 @@ const Navbar = () => {
 
           </div>
         </nav>
-        <Searchbar />
-        <Category/>
+        <div className={`transition-all duration-300 ${isShowFull ? 'mt-0' : "-mt-14"}`}>
+          <Searchbar />
+        </div>
+        <Category />
       </div>
     </Container>
   );

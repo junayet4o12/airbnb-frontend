@@ -1,17 +1,36 @@
+import useInfo from "../../hooks/useInfo";
+import { useGetAllPropertiesQuery } from "../../Redux/features/api/allBaseApi";
+import PropertyCard from "./PropertyCard";
 
 const Home = () => {
-    return (
-        <div>
-            If you're looking for fonts on Google Fonts that are similar to Airbnb Cereal VF, which is a clean, modern sans-serif font with rounded edges and a friendly, approachable style, here are some good alternatives:
-
-Poppins – A geometric sans-serif with clean, modern letterforms.
-Nunito – A rounded sans-serif font that feels soft and approachable.
-Raleway – A sleek and modern sans-serif with rounded edges.
-Quicksand – A geometric sans-serif with soft, rounded corners.
-Rubik – Another rounded sans-serif that has a friendly, modern appearance.
-Montserrat – A popular, geometric sans-serif with similar proportions and a modern feel.
-Lato – A well-balanced sans-serif font that offers a more neutral and professional vibe.
+    const { isLoading, data=[] } = useInfo()
+    const loadingComponents = <div className="w-full p-2 space-y-3">
+        <div className="w-full h-32 rounded-lg skeleton"></div>
+        <div className="w-[40%] h-5 skeleton"></div>
+        <div className="w-[30%] h-5 skeleton"></div>
+        <div className="w-[35%] h-5 skeleton"></div>
+        <div className="w-[45%] h-5 skeleton"></div>
+    </div>
+    if (isLoading) {
+        return <div className="grid grid-cols-2 md:grid-cols-4">
+            {loadingComponents}
+            {loadingComponents}
+            {loadingComponents}
+            {loadingComponents}
         </div>
+    }
+
+    return (
+        <>
+            {
+                data.length > 0 ? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pb-40">
+                    {
+                        data?.map(item => <PropertyCard key={item._id} data={item} />)
+                    }
+                </div> :
+                    <p className="py-10 text-center">No Property Found!!</p>
+            }
+        </>
     );
 };
 

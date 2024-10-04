@@ -37,6 +37,14 @@ const allBaseApi = createApi({
             }),
             invalidatesTags: ['Properties'],
         }),
+        filterProperty: builder.mutation({
+            query: (body) => ({
+                url: '/properties/filter',
+                method: 'POST',
+                body: body,
+            }),
+            invalidatesTags: ['Properties'],
+        }),
         getSingleProperty: builder.query({
             query: (id) => ({
                 url: `/properties/${id}`,
@@ -76,6 +84,7 @@ export const {
     useAddPropertyMutation,
     useUpdatePropertyMutation,
     useDeletePropertyMutation,
+    useFilterPropertyMutation
 } = allBaseApi;
 
 export default allBaseApi;

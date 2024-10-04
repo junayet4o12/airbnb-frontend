@@ -6,8 +6,9 @@ import map3 from '../../assets/map/map3.jpg'
 import map4 from '../../assets/map/map4.jpg'
 import map5 from '../../assets/map/map5.jpg'
 import map6 from '../../assets/map/map6.jpg'
+import useInfo from "../../hooks/useInfo";
 const SelectLocationDropdown = ({ setIsOpen, handleChangeLocation }) => {
-
+const {setShowFullSearchBar, setKeepFullSearchBar} = useInfo()
     const dropdownRef = useRef(null);
     const allMaps = [
         {
@@ -46,6 +47,8 @@ const SelectLocationDropdown = ({ setIsOpen, handleChangeLocation }) => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
+                setShowFullSearchBar(true)
+                setKeepFullSearchBar(false)
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
