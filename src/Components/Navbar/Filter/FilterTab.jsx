@@ -12,7 +12,6 @@ const FilterTab = () => {
     const { filteringData, setFilteringData } = useInfo()
 
     const activeTab = filteringData.type;
-    console.log(activeTab);
     
     const data = [
         {

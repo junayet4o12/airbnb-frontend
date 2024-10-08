@@ -21,7 +21,7 @@ const CategoriesCarousel = () => {
     };
     return (
         <div className='flex gap-2 items-center bg-white mt-2'>
-            <div className={`relative my-3 ${category.category === categories[0].category ? 'w-full' : 'w-[calc(100%-320px)]'}`}>
+            <div className={`relative my-3 w-[calc(100%-320px)]`}>
                 <div className='px-10'>
                     <Swiper
                         onInit={(swiper) => {
@@ -96,17 +96,15 @@ const CategoriesCarousel = () => {
                     <GrFormNext />
                 </div>
             </div>
-            {category.category !== categories[0].category &&
-                <div className='flex justify-center items-center w-[320px] gap-2'>
-                    <Filter/>
-                    <button className='flex items-center gap-1 border border-gray-700 h-max px-2 py-3 rounded-lg text-sm text-nowrap'>Display total before texas  <input
-                        type="checkbox"
-                        className="toggle toggle-sm"
-                        checked={showTexas}  // Bound to the state variable
-                        onChange={handleToggleChange} // Handle state change
-                    /></button>
-                </div>
-            }
+            <div className='flex justify-center items-center w-[320px] gap-2'>
+                <Filter />
+                <button className='flex items-center gap-1 border border-gray-700 h-max px-2 py-3 rounded-lg text-sm text-nowrap'>Display total before texas  <input
+                    type="checkbox"
+                    className="toggle toggle-sm"
+                    checked={showTexas}  // Bound to the state variable
+                    onChange={handleToggleChange} // Handle state change
+                /></button>
+            </div>
         </div>
     );
 };

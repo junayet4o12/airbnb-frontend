@@ -6,7 +6,7 @@ import { useFilterPropertyMutation } from "../Redux/features/api/allBaseApi";
 
 export const InfoContext = createContext(null);
 const InfoProviders = ({ children }) => {
-    const [showTexas, setShowTexas] = useState(true); // Initial state set to true
+    const [showTexas, setShowTexas] = useState(false); // Initial state set to true
 
     const [filteringData, setFilteringData] = useState({
         location: '',
@@ -14,10 +14,11 @@ const InfoProviders = ({ children }) => {
         checkout: null,
         type: 'anyType',
         price: {
-            min: 30,
-            max: 200
+            min: 0,
+            max: 550
         }
     })
+    
     const [category, setCategory] = useState(categories[0])
     const [showFullSearchBar, setShowFullSearchBar] = useState(true)
     const [keepFullSearchBar, setKeepFullSearchBar] = useState(false)
@@ -39,7 +40,6 @@ const InfoProviders = ({ children }) => {
     })
 
     const [filter, { data, isLoading }] = useFilterPropertyMutation();
-    console.log(data);
 
     const filterAll = () => {
         filter({ ...filteringData, category: category.category, ...guests, roomsAndBeds,amenities })

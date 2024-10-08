@@ -9,7 +9,7 @@ const Amenities = () => {
     const kitchen = amenities.kitchen
     const washer = amenities.washer;
     const btnStyle = (isActive = false) => {
-        return ` px-5 py-3 rounded-full transition-all duration-200 active:scale-90 hover:border-black flex gap-2 items-center ${isActive ? 'border-2 border-black' : 'border border-gray-500'}`
+        return ` px-5 py-3 rounded-full transition-all duration-200 active:scale-90 hover:border-black flex gap-2 items-center ${isActive ? 'border-[2.5px] border-black' : 'border border-gray-500'}`
     }
     return (
         <div>

@@ -15,7 +15,7 @@ const PriceRange = () => {
                 className=''
                 style={{ marginTop: 16, }}
                 value={value}
-                max={300}
+                max={600}
                 onChange={value => {
                     setFilteringData({ ...filteringData, price: { min: value[0], max: value[1] } })
 
@@ -25,14 +25,14 @@ const PriceRange = () => {
                 <div>
                     <p>Minimum</p>
                     <input value={minPrice}
-                        onChange={(e) => setFilteringData({ ...filteringData, price: { min: e.target.value, max: maxPrice } })}
+                        onChange={(e) => setFilteringData({ ...filteringData, price: { min: parseInt(e.target.value), max: maxPrice } })}
                         
                         type="number" className='border border-black w-20 px-2 text-center py-3 rounded-full flex justify-center items-center outline-none' placeholder='Type' />
                 </div>
                 <div>
                     <p>Maximum</p>
                     <input
-                        onChange={(e) => setFilteringData({ ...filteringData, price: { max: e.target.value, min: minPrice } })}
+                        onChange={(e) => setFilteringData({ ...filteringData, price: { max: parseInt(e.target.value), min: minPrice } })}
                         value={maxPrice} type="number" className='border border-black w-20 px-2 text-center py-3 rounded-full flex justify-center items-center outline-none' placeholder='Type' />
                 </div>
             </div>

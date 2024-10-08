@@ -3,8 +3,7 @@ import ImageSlider from './ImageSlider';
 import useInfo from '../../hooks/useInfo';
 
 const PropertyCard = ({ data }) => {
-    const { showTexas, category: selectedCategory } = useInfo();
-    const isShowTexas = selectedCategory.category === 'Icons' ? false : showTexas
+    const { showTexas } = useInfo();
     const {
         dates: { startDate, endDate },
         roomsAndBeds: { rooms, beds, bathrooms },
@@ -40,7 +39,7 @@ const PropertyCard = ({ data }) => {
                 <h3 className='text-base text-gray-600 font-semibold'>{viewType}</h3>
                 <h3 className='text-base text-gray-600 font-semibold'>{formatDate(startDate)} - {formatDate(endDate)}</h3>
                 {
-                    isShowTexas ? <p className='underline font-semibold'>${totalBeforeTaxes} total before texas</p> : <p className='font-bold'>${pricePerNight} per Guest</p>
+                    showTexas ? <p className='underline font-semibold'>${totalBeforeTaxes} total before texas</p> : <p className='font-bold'>${pricePerNight} per Guest</p>
                 }
                 
             </div>
