@@ -1,12 +1,13 @@
 // Import Swiper React components and styles
 import { Swiper, SwiperSlide } from 'swiper/react';
-import filerIcon from '../../assets/icon/filter.jpg'
+
 // Import Swiper core and required modules
 import { categories } from '../../categories';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { Navigation } from 'swiper/modules';
 import { useState, useRef } from 'react';
 import useInfo from '../../hooks/useInfo';
+import Filter from './Filter/Filter';
 
 const CategoriesCarousel = () => {
     const { category, setCategory, showTexas, setShowTexas } = useInfo();
@@ -20,7 +21,7 @@ const CategoriesCarousel = () => {
     };
     return (
         <div className='flex gap-2 items-center bg-white mt-2'>
-            <div className={`relative my-3 ${category.category === categories[0].category ? 'w-full' : 'w-[calc(100%-240px)]'}`}>
+            <div className={`relative my-3 ${category.category === categories[0].category ? 'w-full' : 'w-[calc(100%-320px)]'}`}>
                 <div className='px-10'>
                     <Swiper
                         onInit={(swiper) => {
@@ -96,7 +97,8 @@ const CategoriesCarousel = () => {
                 </div>
             </div>
             {category.category !== categories[0].category &&
-                <div className='flex justify-center items-center w-[240px]'>
+                <div className='flex justify-center items-center w-[320px] gap-2'>
+                    <Filter/>
                     <button className='flex items-center gap-1 border border-gray-700 h-max px-2 py-3 rounded-lg text-sm text-nowrap'>Display total before texas  <input
                         type="checkbox"
                         className="toggle toggle-sm"

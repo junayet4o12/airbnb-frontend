@@ -23,7 +23,7 @@ const PropertyCard = ({ data }) => {
         typeOfPlace,
         region
     } = data;
-    
+
     const formatDate = (incomingdate) => {
         const date = new Date(incomingdate)
         if (date === null) {
@@ -42,8 +42,7 @@ const PropertyCard = ({ data }) => {
                 {
                     isShowTexas ? <p className='underline font-semibold'>${totalBeforeTaxes} total before texas</p> : <p className='font-bold'>${pricePerNight} per Guest</p>
                 }
-
-
+                
             </div>
         </div>
     );

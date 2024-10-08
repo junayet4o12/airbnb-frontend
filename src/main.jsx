@@ -27,6 +27,8 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/a11y';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
+import 'rsuite/Button/styles/index.css';
+import 'rsuite/dist/rsuite-no-reset.min.css';
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>
